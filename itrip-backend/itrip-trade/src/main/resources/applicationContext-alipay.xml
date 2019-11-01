@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 支付宝手机网站支付 -->
+	<bean class="cn.itrip.trade.config.AlipayConfig">
+		<!--appid-->
+		<property name="appID" value="2016092800619313"/>
+		<!--私钥-->
+		<property name="rsaPrivateKey" value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCJt3rLZRotGW/bjtt6fhm6nhRtB/de+GPAhrg02BViUdqde1hl5kqhVGXA0/1rGqpPmEtXg+fRi6Z+B5DwBeyP3odCSAWqYFsVLjny/Of0oHSznZBZpSqw/yT8HQyzaht7ipHffBI975J/IxGXmVDb4uFrwMHRJD3wD5+pMRj3G2g48fE98nazgeT1rrdn5jBAKwzHb+GalhAhOZDnf6ILUpwn9g6u7kj76ylUhyC2OnMNWyPjMgN43Oj99BEYg/wYFM0/GKVtP+D7MqJQdA7NQOE1QSODOC6ttTB8c9i27nQjIDdzwhCDNhLtYRZUDjlS++t/5EMIckHl1RswoEN1AgMBAAECggEAIqBNcaKECF7i7xNmP9BA69kfTaK5IdnWSuwUmMTT65qlGv+OZGCY1yN/ShKDH1DfDZA/MUvrF5bDT+DbIl568lmDLLkrI4GCpTqwO1Y3hBxr+1VcnA2ZRFOCmxk6vkmpi1B2CPkLJSN9dBX/MFzOJdtPzmXy1YEFSbzD6ih8HHUZuTYcluv/N6p7BDuZsV4bxVHM4Z4t2KD2IPABioQWFyxQjEzlQCONX3chH45fEXhI5tmuceSyZ7jF1x4fHBagkwnuD+6kjmBBaGwZUtGMvpOs2zOgYovD2GWoYI1fipT+qFT9xJpaI8TCr82xpvjCnoNYqJr5vb59HDPmTk1FwQKBgQDglFN6LbJD+AKzl0nPm9VlFLOa5khROIIS7EVFbFwL4Fak9BrYhAriNKULCpA6cKLqIwSkjEAXtXhrgysfFG5O41IZMlc6X+Jx55py61Q2E93t5Ctn3Sj4SVjciBKSSZHIOGA3lV2GHbmPD6uwdjJ+NnE/URpTQ68tbRNth3rpeQKBgQCc/Aa+sub1PycIIB3oX1lELAhURvXLn9YNJfHNOnwJ1BH/9Ipum9pGIyUsUpw49MjPDsalcK+MDknGeAUoqvmbx7Dh0hTGqrsObtQoU9W/Tjaumn/5QuBJv0jFlKbf1Dtvxce0JzkXPiK18eY4VhGFvdXo/auLBdqOkqeZ7VLm3QKBgQC/THmjHGO6U/txIVDFYLewh6bKLpixXtIl7k6/aSMrFqiXkDuB7VAcCb4AnrnmneWYTcX5qGI8D9+IrU3BBrVDy402W1RELEMGxcMhWuX7voaPyolSyufIPypLiDlRlQtyItuK3VeyE4Xpn+6evMAcFKH4zkv/WytQJZaj+QCw+QKBgBpqfmgQirSyD8taPC4h/U9vaWdlGW9OUiKcQ/gY4050FSNQ7wp1x2EOAO9YZ1leN3xALEUilSeoL9np0FRrkN0Z2TXmuABGMnvXQnQWx10NuD3hWa+EBWHjgkddIEeB2w6P5W73OrAikIy1S9wm/4PV0e0G4prePUzIeNN6D/0xAoGBALJS/xIlp876mmOxogmUouhfDGUq5vAlQ/BR1ee0E/4MgpzDgkw+BAe8xVk1uK//QYHeVeGRVeV3men3GvA8FOy5+BcdnMJaw2FBwn3LEonfhz+2He0lTm4Tr/9+QtY6r30BsRB4oNSoBzDJUshpKBecljncGl+/rnYqya7mYcY6"/>
+		<!--支付宝网关-->
+		<property name="url" value="https://openapi.alipaydev.com/gateway.do"/>
+		<!--支付宝公钥-->
+		<property name="alipayPublicKey" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgZSasQdF82USSnyAfwQw52lGFDKM8jCB04eYyki9j08xXjd/6z1qmSlIERFeYIeLd55yknv4/OoTAF3LuoGCvXzdl9d61XjfhwWduEZ9Z2RSL0jqaTXTQeu5Pgoh6MO0LXCT/oWfNg1ND9MIv68hjZnRZyd2TB01sphuMNkORe8/lzscckW6H6B0b7aiKJ4kVCKYtTkcp9L0mn8qANDoiOJ145YWeFmXYoGfz+S4FawhfhnVIvIJXvy4uMbkclPnnZcGz4TxSQvNmQ4eFMuEebnWTsNlX+iVkVniGaZyfftocyanedyyh3SFkxnI8v6GkNOZDQPxdw0NTpD8HDnGpQIDAQAB"/>
+
+		<!--
+		<property name="notifyUrl" value="http://127.0.0.1:8087/trade/api/notify"/>
+		<property name="returnUrl" value="http://127.0.0.1:8087/trade/api/return"/>
+		-->
+		<property name="notifyUrl" value="http://27w5x48298.zicp.vip/trade/api/notify"/>
+		<property name="returnUrl" value="http://27w5x48298.zicp.vip/trade/api/return"/>
+
+		<property name="paymentSuccessUrl" value="http://127.0.0.1:8087/trade/success.jsp"/>
+		<property name="paymentFailureUrl" value="http://127.0.0.1:8087/trade/failure.jsp"/>
+
+		<!--
+		<property name="notifyUrl" value="http://itrip.project.bdqn.cn/trade/api/notify"/>
+		<property name="returnUrl" value="http://itrip.project.bdqn.cn/trade/api/return"/>
+		-->
+		<!--
+		<property name="paymentSuccessUrl" value="http://itrip.project.bdqn.cn/index.html#/orderpaystate?orderNo=%s&amp;id=%s"/>
+		<property name="paymentFailureUrl" value="http://itrip.project.bdqn.cn/index.html#/orderpaystate?orderNo=%s&amp;id=%s&amp;state=0"/>
+		-->
+		<property name="charset" value="UTF-8"/>
+		<property name="format" value="json"/>
+		<property name="logPath" value="/logs"/>
+		<property name="signType" value="RSA2"/>
+	</bean>
+	
+	
+</beans>
